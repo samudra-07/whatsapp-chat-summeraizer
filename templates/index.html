@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Chat Summarizer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        #upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #chat-file {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #results {
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .summary {
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            font-size: 16px;
+            color: #555;
+            min-height: 100px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .summary:first-child {
+            margin-top: 0;
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WhatsApp Chat Summarizer</h1>
+        <form id="upload-form">
+            <input type="file" id="chat-file" name="file" accept=".txt" required>
+            <button type="submit">Upload and Summarize</button>
+        </form>
+
+        <div id="results">
+            <h2>Summaries</h2>
+            <div class="loading" id="loading-message" style="display: none;">Generating summaries...</div>
+            <div class="summary" id="extractive-summary">Extractive summary will appear here...</div>
+            <div class="summary" id="abstractive-summary">Abstractive summary will appear here...</div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('upload-form');
+        const loadingMessage = document.getElementById('loading-message');
+        const extractiveSummary = document.getElementById('extractive-summary');
+        const abstractiveSummary = document.getElementById('abstractive-summary');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fileInput = document.getElementById('chat-file');
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            loadingMessage.style.display = 'block'; // Show loading message
+            extractiveSummary.textContent = 'Loading...';
+            abstractiveSummary.textContent = 'Loading...';
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.extractive) {
+                    extractiveSummary.textContent = data.extractive;
+                } else {
+                    extractiveSummary.textContent = 'Extractive summary not available.';
+                }
+
+                if (data.abstractive) {
+                    abstractiveSummary.textContent = data.abstractive;
+                } else {
+                    abstractiveSummary.textContent = 'Abstractive summary not available.';
+                }
+            } catch (error) {
+                extractiveSummary.textContent = 'Error generating extractive summary.';
+                abstractiveSummary.textContent = 'Error generating abstractive summary.';
+            } finally {
+                loadingMessage.style.display = 'none'; // Hide loading message
+            }
+        });
+    </script>
+</body>
+</html>
