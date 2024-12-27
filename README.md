@@ -1,4 +1,4 @@
-# WhatsApp Chat Summeraizer
+# WhatsApp Chat Summarizer
 
 A tool for analyzing and summarizing WhatsApp chat data. The project processes exported WhatsApp chat files, extracts meaningful information, and provides summaries, statistics, and insights.
 
@@ -18,7 +18,7 @@ A tool for analyzing and summarizing WhatsApp chat data. The project processes e
 
 ## Introduction
 
-The **WhatsApp Chat Summeraizer** is designed to analyze WhatsApp chat exports to help users gain insights into their conversations. It can summarize chat histories, extract key statistics like message counts, word frequencies, and more, providing useful analytics for large conversations.
+The **WhatsApp Chat Summarizer** is designed to analyze WhatsApp chat exports to help users gain insights into their conversations. It can summarize chat histories, extract key statistics like message counts, word frequencies, and more, providing useful analytics for large conversations.
 
 This project is built with Python, and uses libraries such as **pandas** for data manipulation and **matplotlib** for visualizations.
 
@@ -33,7 +33,7 @@ This project is built with Python, and uses libraries such as **pandas** for dat
 
 ### Prerequisites
 
-Before installing the WhatsApp Chat Summeraizer, make sure you have Python 3.7+ installed on your machine. You can download it from the [official Python website](https://www.python.org/downloads/).
+Before installing the WhatsApp Chat Summarizer, make sure you have Python 3.7+ installed on your machine. You can download it from the [official Python website](https://www.python.org/downloads/).
 
 ### Setting Up the Environment
 
@@ -75,7 +75,7 @@ pip install pandas matplotlib
 
 ### Running the Application
 
-To use the WhatsApp Chat Analyzer, follow these steps:
+To use the WhatsApp Chat Summarizer, follow these steps:
 
 1. **Prepare the WhatsApp Chat Export**:
    - Export the chat from WhatsApp by following these steps:
@@ -107,7 +107,7 @@ Once the application is set up and running, you can analyze your WhatsApp chats 
 
 ## Contributing
 
-If you want to contribute to the development of the WhatsApp Chat Analyzer, follow the steps below:
+If you want to contribute to the development of the WhatsApp Chat Summarizer, follow the steps below:
 
 1. **Fork this repository** by clicking the "Fork" button on the GitHub page.
 2. **Clone the forked repository to your local machine**:
