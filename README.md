@@ -1,4 +1,4 @@
-# WhatsApp Chat Analyzer
+# WhatsApp Chat Summeraizer
 
 A tool for analyzing and summarizing WhatsApp chat data. The project processes exported WhatsApp chat files, extracts meaningful information, and provides summaries, statistics, and insights.
 
@@ -18,7 +18,7 @@ A tool for analyzing and summarizing WhatsApp chat data. The project processes e
 
 ## Introduction
 
-The **WhatsApp Chat Analyzer** is designed to analyze WhatsApp chat exports to help users gain insights into their conversations. It can summarize chat histories, extract key statistics like message counts, word frequencies, and more, providing useful analytics for large conversations.
+The **WhatsApp Chat Summeraizer** is designed to analyze WhatsApp chat exports to help users gain insights into their conversations. It can summarize chat histories, extract key statistics like message counts, word frequencies, and more, providing useful analytics for large conversations.
 
 This project is built with Python, and uses libraries such as **pandas** for data manipulation and **matplotlib** for visualizations.
 
@@ -33,7 +33,7 @@ This project is built with Python, and uses libraries such as **pandas** for dat
 
 ### Prerequisites
 
-Before installing the WhatsApp Chat Analyzer, make sure you have Python 3.7+ installed on your machine. You can download it from the [official Python website](https://www.python.org/downloads/).
+Before installing the WhatsApp Chat Summeraizer, make sure you have Python 3.7+ installed on your machine. You can download it from the [official Python website](https://www.python.org/downloads/).
 
 ### Setting Up the Environment
 
